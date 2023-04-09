@@ -1,14 +1,3 @@
-#!/usr/bin/env python
-# coding=utf-8
-'''
-@Author: John
-@Email: johnjim0816@gmail.com
-@Date: 2020-05-21 23:36:58
-@LastEditor: John
-@LastEditTime: 2020-05-22 07:24:45
-@Discription: 
-@Environment: python 3.7.7
-'''
 import numpy as np
 from struct import unpack
 import gzip
@@ -37,18 +26,6 @@ def __one_hot_label(label):
     return lab
 
 def load_mnist(x_train_path, y_train_path, x_test_path, y_test_path, normalize=True, one_hot=True):
-    
-    '''读入MNIST数据集
-    Parameters
-    ----------
-    normalize : 将图像的像素值正规化为0.0~1.0
-    one_hot_label : 
-        one_hot为True的情况下，标签作为one-hot数组返回
-        one-hot数组是指[0,0,1,0,0,0,0,0,0,0]这样的数组
-    Returns
-    ----------
-    (训练图像, 训练标签), (测试图像, 测试标签)
-    '''
     image = {
         'train' : __read_image(x_train_path),
         'test'  : __read_image(x_test_path)
